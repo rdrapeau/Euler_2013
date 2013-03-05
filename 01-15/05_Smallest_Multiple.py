@@ -13,12 +13,12 @@ numbers_to_check = [11, 13, 14, 16, 17, 18, 19, 20]
 def solve():
     largest = numbers_to_check.pop()
     number = largest
-    while (not check(number)):
+    while (not is_divisible(number)):
         number += largest
     return number
 
 # Returns whether or not n is evenly divisible by all numbers_to_check
-def check(n):
+def is_divisible(n):
     for number in numbers_to_check:
         if n % number != 0:
             return False
