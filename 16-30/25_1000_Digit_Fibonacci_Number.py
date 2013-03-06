@@ -27,7 +27,7 @@ What is the first term in the Fibonacci sequence to contain 1000 digits?
 
 dict = {} # Fibonacci numbers already calculated
 
-# Returns the first number in the Fib sequence to containt n digits
+# Returns the first number in the Fib sequence to contain n digits
 def get_nth_digit(n):
     number = 0
     counter = 0
