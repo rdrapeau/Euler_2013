@@ -30,7 +30,6 @@ The product of these numbers is 26 x 63 x 78 x 14 = 1788696.
 
 What is the greatest product of four adjacent numbers in the same direction 
 (up, down, left, right, or diagonally) in the 20 x 20 grid?
-70600674
 '''
 
 # Iterate through the entire grid and grab the max product
@@ -41,6 +40,7 @@ def get_max(grid):
             result = calculate_directions(grid, row, col)
             if result > max:
                 max = result
+                print max
     return max
 
 # Calculates the eight possible directional products and returns the greatest one
@@ -58,15 +58,17 @@ def calculate_directions(grid, row, col):
     return max(products)
 
 # Creates a 2D array of the data above
-def get_grid():
+def get_grid(file_name):
     grid = []
+    file = open(file_name, 'r')
     for i in range(0, 20):
-        row = raw_input().split(" ")
+        row = str(file.readline())
+        row = row.split(" ")
         for n in range(20):
             row[n] = int(row[n])
         grid.append(row)
     return grid
 
-print get_max(get_grid())
+print get_max(get_grid("output.txt"))
 
     
