@@ -18,21 +18,22 @@ def sum_primes(max):
         primes = 2
     number = 3
     while number < max:
-        if is_prime2(number):
+        if is_prime(number):
             primes += number
         number += 2
-        print number
     return primes
 
 # Returns whether or not n is prime
 def is_prime(n):
-    if n == 2:
-        return True
-    elif n % 2 == 0:
-        return False
-    for i in range(3, int(math.sqrt(n) + 1)):
-        if n % i == 0:
-            return False
-    return True
+    return is_prime_helper(2, n, n) == 1
+
+def is_prime_helper(a, exp, n):
+    if exp == 0:
+        return 1
+    elif exp % 2:
+        number = is_prime_helper(a, exp / 2, n)
+        return number ** 2 % n
+    else:
+        return a * is_prime_helper(a, exp - 1, n)
 
 print sum_primes(max)
