@@ -10,30 +10,15 @@ Find the sum of all the primes below two million.
 import math
 
 max = 2000000
+sieve = [True] * max  # Sieve is faster for 2M primes
 
-# Returns the sum of primes below max 
-def sum_primes(max):
-    primes = 0
-    if max > 2:
-        primes = 2
-    number = 3
-    while number < max:
-        if is_prime(number):
-            primes += number
-        number += 2
-    return primes
+def mark(sieve, x):
+    for i in xrange(x + x, len(sieve), x):
+        sieve[i] = False
 
-# Returns whether or not n is prime
-def is_prime(n):
-    return is_prime_helper(2, n, n) == 1
+for x in xrange(2, int(len(sieve) ** 0.5) + 1):
+    if sieve[x]: 
+        mark(sieve, x)
 
-def is_prime_helper(a, exp, n):
-    if exp == 0:
-        return 1
-    elif exp % 2:
-        number = is_prime_helper(a, exp / 2, n)
-        return number ** 2 % n
-    else:
-        return a * is_prime_helper(a, exp - 1, n)
 
-print sum_primes(max)
+print sum(i for i in xrange(2, len(sieve)) if sieve[i])
