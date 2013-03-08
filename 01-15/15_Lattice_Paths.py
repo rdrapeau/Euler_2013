@@ -9,7 +9,7 @@ there are exactly 6 routes to the bottom right corner.
 How many such routes are there through a 20x20 grid?
 '''
 
-# Returns the number of paths to get from the top left to the bottom right of a grid of size size
+# Returns the factorial of n
 def fact(n):
     f = 1
     for x in xrange(1, n + 1): 
