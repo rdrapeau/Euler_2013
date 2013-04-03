@@ -12,18 +12,18 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 find the sum of the even-valued terms.
 '''
 
-dict = {} # Fibonacci numbers already calculated
+fibonacci_numbers = {} # Fibonacci numbers already calculated
 
 # Returns the nth number in the Fibonacci sequence
 def fib(n):
-    if n in dict: # Already computed this number
-        return dict[n]
+    if n in fibonacci_numbers: # Already computed this number
+        return fibonacci_numbers[n]
     elif n < 2:
-        dict[n] = n
+        fibonacci_numbers[n] = n
         return n
     else:
-        dict[n] = fib(n - 1) + fib(n - 2)
-        return dict[n]
+        fibonacci_numbers[n] = fib(n - 1) + fib(n - 2)
+        return fibonacci_numbers[n]
 
 # Returns sum of the even numbers in the Fibonacci sequence whose values do not exceed four million
 def get_nums(max):

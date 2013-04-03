@@ -48,3 +48,4 @@ def fib(n):
         return dict[n]
 
 print get_nth_digit(1000)
+print fib(4782)
