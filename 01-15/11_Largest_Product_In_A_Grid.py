@@ -40,7 +40,6 @@ def get_max(grid):
             result = calculate_directions(grid, row, col)
             if result > max:
                 max = result
-                print max
     return max
 
 # Calculates the eight possible directional products and returns the greatest one
@@ -69,6 +68,6 @@ def get_grid(file_name):
         grid.append(row)
     return grid
 
-print get_max(get_grid("output.txt"))
+print get_max(get_grid("input.txt"))
 
     
