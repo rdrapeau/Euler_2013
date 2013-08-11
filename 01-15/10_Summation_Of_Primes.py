@@ -13,7 +13,7 @@ max = 2000000
 sieve = [True] * max  # Sieve is faster for 2M primes
 
 def mark(sieve, x):
-    for i in xrange(x + x, len(sieve), x):
+    for i in xrange(x * x, len(sieve), x):
         sieve[i] = False
 
 for x in xrange(2, int(len(sieve) ** 0.5) + 1):

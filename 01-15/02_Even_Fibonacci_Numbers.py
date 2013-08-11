@@ -13,28 +13,22 @@ find the sum of the even-valued terms.
 '''
 
 fibonacci_numbers = {} # Fibonacci numbers already calculated
+fibs = [0, 1]
 
-# Returns the nth number in the Fibonacci sequence
-def fib(n):
-    if n in fibonacci_numbers: # Already computed this number
-        return fibonacci_numbers[n]
-    elif n < 2:
-        fibonacci_numbers[n] = n
-        return n
-    else:
-        fibonacci_numbers[n] = fib(n - 1) + fib(n - 2)
-        return fibonacci_numbers[n]
+# Fills the array with the fibonacci numbers up until max
+def fillFibs(max):
+    a = fibs[0]
+    b = fibs[1]
+    while b < max:
+        c = b
+        b += a
+        a = c
+        fibs.append(b)
 
-# Returns sum of the even numbers in the Fibonacci sequence whose values do not exceed four million
-def get_nums(max):
-    number = fib(0)
-    count = 1
-    sum = 0
-    while (number < max):
-        if number % 2 == 0:
-            sum += number
-        number = fib(count)
-        count += 1
-    return sum
+fillFibs(4000000)
+sum = 0
+for n in fibs:
+    if n % 2 == 0:
+        sum += n
 
-print get_nums(4000000)
+print sum

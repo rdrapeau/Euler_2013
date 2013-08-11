@@ -7,20 +7,19 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 
 What is the 10 001st prime number?
 '''
-index = 10001
+def is_prime(n):
+    for i in range(3, int(n ** 0.5) + 1, 2):
+        if not n % i:
+            return False
+    return True
 
-# Returns the ith prime number
-def ith_prime(max):
-    list = [2]
-    current = 3
-    while len(list) < max:
-        divisible = True
-        for prime in list: # Check to see if it is divisible by the past prime numbers
-            if current % prime == 0:
-                divisible = False
-        if divisible:
-            list.append(current)
-        current += 2 # Only prime that is even is 2
-    return list.pop() # Return the maxth element
+def prime_list(n):
+    primes = [2, 3, 5, 7, 11, 13]
+    i = max(primes) + 2
+    while len(primes) < n:
+        if is_prime(i):
+            primes.append(i)
+        i += 2
+    return primes
 
-print ith_prime(index)
+print max(prime_list(10001))

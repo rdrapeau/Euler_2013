@@ -11,16 +11,14 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 # Returns the largest palindrome made from the product of two digit-digit numbers
 def largest_palindrome(digit):
-    palindromes = []
+    max = 0
     for x in range(10 ** (digit - 1), 10 ** digit):
         for y in range(x, 10 ** digit):
             n = x * y
-            if is_palindrome(n):
-                palindromes.append(n)
-    palindromes.sort()
-    return palindromes.pop()
+            if is_palindrome(n) and n > max:
+                max = n
+    return max
         
-            
 # Returns whether the number n is a palindromic number or not
 def is_palindrome(n):
     return str(n) == str(n)[::-1]

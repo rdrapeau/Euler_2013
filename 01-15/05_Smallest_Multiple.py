@@ -11,7 +11,7 @@ numbers_to_check = [11, 13, 14, 16, 17, 18, 19, 20]
 
 # Returns the smallest number that passes check(number)
 def solve():
-    largest = numbers_to_check.pop()
+    largest = 2520
     number = largest
     while (not is_divisible(number)):
         number += largest
